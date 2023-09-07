@@ -22,6 +22,3 @@ export default function App() {
     </BrowserRouter>
   );
 }
-
-const appDiv = document.getElementById("app");
-render(<App />, appDiv);
