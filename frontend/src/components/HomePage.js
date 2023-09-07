@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <div>
       <Navbar />
-      <h1>HomePage</h1>
+      <h1 className="text-blue">HomePage</h1>
     </div>
   );
 }
