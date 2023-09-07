@@ -21,10 +21,10 @@ export default function Navbar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+          <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
+            BingeWatcher
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button size="large" color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
     </Box>
