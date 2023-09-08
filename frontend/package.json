@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development --watch",
+    "dev": "sass --watch static/css/index.scss static/css/index.css & webpack --mode development --watch",
     "build": "webpack --mode production"
   },
   "keywords": [],
@@ -26,6 +26,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.8",
     "@mui/material": "^5.14.8",
-    "react-router-dom": "^6.15.0"
+    "react-router-dom": "^6.15.0",
+    "sass": "^1.66.1"
   }
 }
