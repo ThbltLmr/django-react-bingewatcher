@@ -1,5 +1,10 @@
 from django.db import models
 import requests
+from pathlib import Path
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Create your models here.
 class Show(models.Model):
@@ -10,7 +15,7 @@ class Show(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     def create_seasons(self):
-        url = f'https://api.themoviedb.org/3/tv/{self.tmdb_id}?api_key=88d4e0c3270ccc984866aea7fb25036f'
+        url = f'https://api.themoviedb.org/3/tv/{self.tmdb_id}?api_key={env("TMDB_API_KEY")}'
         print(url)
         payload = {}
         headers = {}
