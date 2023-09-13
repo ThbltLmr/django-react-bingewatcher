@@ -5,10 +5,10 @@ import { BrowserRouter,
   Route,
   Link
 } from "react-router-dom";
-import HomePage from "./HomePage";
-import Profile from "./Profile";
-import Shows from "./Shows";
-import AddShow from "./AddShow";
+import HomePage from "./containers/HomePage";
+import Profile from "./containers/Profile";
+import Shows from "./containers/Shows";
+import AddShow from "./containers/AddShow";
 
 export default function App() {
   return (

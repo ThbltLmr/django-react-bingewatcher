@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
 import Typography from '@mui/material/Typography';
-import ExplanationCard from "./ExplanationCard";
+import ExplanationCard from "../components/ExplanationCard";
 import Button from '@mui/material/Button';
 
 export default function HomePage() {
