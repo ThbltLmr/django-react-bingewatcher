@@ -17,7 +17,7 @@ export const loadUser = () => async dispatch => {
     };
 
     try {
-      const res = await axios.get(`http://localhost:8000/auth/users/me/`, config);
+      const res = await axios.get(`${process.env.REACT_API_URL}/auth/users/me/`, config);
       dispatch({ type: USER_LOADED_SUCCESS, payload: res.data });
     } catch (error) {
       dispatch({ type: USER_LOADED_FAIL });
@@ -37,7 +37,7 @@ export const login = (email, password) => async dispatch => {
   const body = JSON.stringify({ email, password });
 
   try {
-    const res = await axios.post(`http://localhost:8000/auth/jwt/create/`, body, config);
+    const res = await axios.post(`${process.env.REACT_API_URL}/auth/jwt/create/`, body, config);
     dispatch({ type: LOGIN_SUCCESS, payload: res.data });
     dispatch(loadUser());
   } catch (err) {
