@@ -27,7 +27,7 @@ export default function App() {
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/profile" element={<Profile />} />
-        <Route exact path="/reset_password" element={<ResetPassword />} />
+        <Route exact path="/reset_password" element={<ResetPassword />} /> {/* only here for test */}
         <Route exact path="/password/reset/confirm/:uid/:token" element={<ResetPasswordConfirm />} />
         <Route exact path="/shows" element={<Shows />} />
         <Route exact path="/signup" element={<SignUp />} />
