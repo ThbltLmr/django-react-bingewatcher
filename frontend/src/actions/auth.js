@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
   LOGIN_FAIL,
   LOGIN_SUCCESS,
@@ -5,10 +6,41 @@ import {
   USER_LOADED_FAIL
 } from './types';
 
-export const loadUser = (username, password) => async dispatch => {
+export const loadUser = () => async dispatch => {
+  if (localStorage.getItem("access")) {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `JWT ${localStorage.getItem("access")}`,
+        "Accept": "application/json"
+      }
+    };
 
+    try {
+      const res = await axios.get(`http://localhost:8000/auth/users/me/`, config);
+      dispatch({ type: USER_LOADED_SUCCESS, payload: res.data });
+    } catch (error) {
+      dispatch({ type: USER_LOADED_FAIL });
+    }
+  } else {
+    dispatch({ type: USER_LOADED_FAIL });
+  };
 };
 
-export const login = (username, password) => async dispatch => {
+export const login = (email, password) => async dispatch => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json"
+    }
+  };
 
+  const body = JSON.stringify({ email, password });
+
+  try {
+    const res = await axios.post(`http://localhost:8000/auth/jwt/create/`, body, config);
+    dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+    dispatch(loadUser());
+  } catch (err) {
+    dispatch({ type: LOGIN_FAIL });
+  }
 };

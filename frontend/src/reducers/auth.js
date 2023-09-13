@@ -26,6 +26,7 @@ export default function(state = initialState, action) {
       }
 
     case USER_LOADED_SUCCESS:
+      console.log(action)
       return {
         ...state,
         user: payload

@@ -1,9 +1,10 @@
 import React, {useState} from "react";
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { login } from '../actions/auth';
 
 
-function Login() {
+function Login( { login }) {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -15,6 +16,7 @@ function Login() {
 
   const onSubmit = e => {
     e.preventDefault();
+    login(email, password);
   };
 
   // TBD: if authenticated, redirect to homepage
@@ -56,4 +58,4 @@ const mapStateToProps = state => ({
   // TBD: isAuthenticated: state.auth.isAuthenticated
 });
 
-export default connect(null, {  })(Login);
+export default connect(null, { login })(Login);
