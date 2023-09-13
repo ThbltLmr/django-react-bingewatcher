@@ -20,8 +20,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@emotion/hash/dist/emotion-hash.esm.js":
 /*!*************************************************************!*\
   !*** ./node_modules/@emotion/hash/dist/emotion-hash.esm.js ***!
@@ -44,7 +42,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 /***/ "./node_modules/@emotion/memoize/dist/emotion-memoize.esm.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/@emotion/memoize/dist/emotion-memoize.esm.js ***!
@@ -56,8 +53,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@emotion/react/_isolated-hnrs/dist/emotion-react-_isolated-hnrs.browser.esm.js":
 /*!*****************************************************************************************************!*\
   !*** ./node_modules/@emotion/react/_isolated-hnrs/dist/emotion-react-_isolated-hnrs.browser.esm.js ***!
@@ -80,16 +75,10 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 /***/ "./node_modules/@emotion/react/dist/emotion-react.browser.esm.js":
 /*!***********************************************************************!*\
   !*** ./node_modules/@emotion/react/dist/emotion-react.browser.esm.js ***!
   \***********************************************************************/
-<<<<<<< HEAD
-/***/ (() => {
-
-eval("throw new Error(\"Module build failed: Error: ENOENT: no such file or directory, open '/home/thiblem/code/ThbltLmr/django-react-bingewatcher/frontend/node_modules/@emotion/react/dist/emotion-react.browser.esm.js'\");\n\n//# sourceURL=webpack://frontend/./node_modules/@emotion/react/dist/emotion-react.browser.esm.js?");
-=======
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -105,7 +94,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   serializeStyles: () => (/* binding */ serializeStyles)\n/* harmony export */ });\n/* harmony import */ var _emotion_hash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/hash */ \"./node_modules/@emotion/hash/dist/emotion-hash.esm.js\");\n/* harmony import */ var _emotion_unitless__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @emotion/unitless */ \"./node_modules/@emotion/unitless/dist/emotion-unitless.esm.js\");\n/* harmony import */ var _emotion_memoize__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @emotion/memoize */ \"./node_modules/@emotion/memoize/dist/emotion-memoize.esm.js\");\n\n\n\n\nvar ILLEGAL_ESCAPE_SEQUENCE_ERROR = \"You have illegal escape sequence in your template literal, most likely inside content's property value.\\nBecause you write your CSS inside a JavaScript string you actually have to do double escaping, so for example \\\"content: '\\\\00d7';\\\" should become \\\"content: '\\\\\\\\00d7';\\\".\\nYou can read more about this here:\\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#ES2018_revision_of_illegal_escape_sequences\";\nvar UNDEFINED_AS_OBJECT_KEY_ERROR = \"You have passed in falsy value as style object's key (can happen when in example you pass unexported component as computed key).\";\nvar hyphenateRegex = /[A-Z]|^ms/g;\nvar animationRegex = /_EMO_([^_]+?)_([^]*?)_EMO_/g;\n\nvar isCustomProperty = function isCustomProperty(property) {\n  return property.charCodeAt(1) === 45;\n};\n\nvar isProcessableValue = function isProcessableValue(value) {\n  return value != null && typeof value !== 'boolean';\n};\n\nvar processStyleName = /* #__PURE__ */(0,_emotion_memoize__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(function (styleName) {\n  return isCustomProperty(styleName) ? styleName : styleName.replace(hyphenateRegex, '-$&').toLowerCase();\n});\n\nvar processStyleValue = function processStyleValue(key, value) {\n  switch (key) {\n    case 'animation':\n    case 'animationName':\n      {\n        if (typeof value === 'string') {\n          return value.replace(animationRegex, function (match, p1, p2) {\n            cursor = {\n              name: p1,\n              styles: p2,\n              next: cursor\n            };\n            return p1;\n          });\n        }\n      }\n  }\n\n  if (_emotion_unitless__WEBPACK_IMPORTED_MODULE_1__[\"default\"][key] !== 1 && !isCustomProperty(key) && typeof value === 'number' && value !== 0) {\n    return value + 'px';\n  }\n\n  return value;\n};\n\nif (false) { var hyphenatedCache, hyphenPattern, msPattern, oldProcessStyleValue, contentValues, contentValuePattern; }\n\nvar noComponentSelectorMessage = 'Component selectors can only be used in conjunction with ' + '@emotion/babel-plugin, the swc Emotion plugin, or another Emotion-aware ' + 'compiler transform.';\n\nfunction handleInterpolation(mergedProps, registered, interpolation) {\n  if (interpolation == null) {\n    return '';\n  }\n\n  if (interpolation.__emotion_styles !== undefined) {\n    if (false) {}\n\n    return interpolation;\n  }\n\n  switch (typeof interpolation) {\n    case 'boolean':\n      {\n        return '';\n      }\n\n    case 'object':\n      {\n        if (interpolation.anim === 1) {\n          cursor = {\n            name: interpolation.name,\n            styles: interpolation.styles,\n            next: cursor\n          };\n          return interpolation.name;\n        }\n\n        if (interpolation.styles !== undefined) {\n          var next = interpolation.next;\n\n          if (next !== undefined) {\n            // not the most efficient thing ever but this is a pretty rare case\n            // and there will be very few iterations of this generally\n            while (next !== undefined) {\n              cursor = {\n                name: next.name,\n                styles: next.styles,\n                next: cursor\n              };\n              next = next.next;\n            }\n          }\n\n          var styles = interpolation.styles + \";\";\n\n          if (false) {}\n\n          return styles;\n        }\n\n        return createStringFromObject(mergedProps, registered, interpolation);\n      }\n\n    case 'function':\n      {\n        if (mergedProps !== undefined) {\n          var previousCursor = cursor;\n          var result = interpolation(mergedProps);\n          cursor = previousCursor;\n          return handleInterpolation(mergedProps, registered, result);\n        } else if (false) {}\n\n        break;\n      }\n\n    case 'string':\n      if (false) { var replaced, matched; }\n\n      break;\n  } // finalize string values (regular strings and functions interpolated into css calls)\n\n\n  if (registered == null) {\n    return interpolation;\n  }\n\n  var cached = registered[interpolation];\n  return cached !== undefined ? cached : interpolation;\n}\n\nfunction createStringFromObject(mergedProps, registered, obj) {\n  var string = '';\n\n  if (Array.isArray(obj)) {\n    for (var i = 0; i < obj.length; i++) {\n      string += handleInterpolation(mergedProps, registered, obj[i]) + \";\";\n    }\n  } else {\n    for (var _key in obj) {\n      var value = obj[_key];\n\n      if (typeof value !== 'object') {\n        if (registered != null && registered[value] !== undefined) {\n          string += _key + \"{\" + registered[value] + \"}\";\n        } else if (isProcessableValue(value)) {\n          string += processStyleName(_key) + \":\" + processStyleValue(_key, value) + \";\";\n        }\n      } else {\n        if (_key === 'NO_COMPONENT_SELECTOR' && \"production\" !== 'production') {}\n\n        if (Array.isArray(value) && typeof value[0] === 'string' && (registered == null || registered[value[0]] === undefined)) {\n          for (var _i = 0; _i < value.length; _i++) {\n            if (isProcessableValue(value[_i])) {\n              string += processStyleName(_key) + \":\" + processStyleValue(_key, value[_i]) + \";\";\n            }\n          }\n        } else {\n          var interpolated = handleInterpolation(mergedProps, registered, value);\n\n          switch (_key) {\n            case 'animation':\n            case 'animationName':\n              {\n                string += processStyleName(_key) + \":\" + interpolated + \";\";\n                break;\n              }\n\n            default:\n              {\n                if (false) {}\n\n                string += _key + \"{\" + interpolated + \"}\";\n              }\n          }\n        }\n      }\n    }\n  }\n\n  return string;\n}\n\nvar labelPattern = /label:\\s*([^\\s;\\n{]+)\\s*(;|$)/g;\nvar sourceMapPattern;\n\nif (false) {} // this is the cursor for keyframes\n// keyframes are stored on the SerializedStyles object as a linked list\n\n\nvar cursor;\nvar serializeStyles = function serializeStyles(args, registered, mergedProps) {\n  if (args.length === 1 && typeof args[0] === 'object' && args[0] !== null && args[0].styles !== undefined) {\n    return args[0];\n  }\n\n  var stringMode = true;\n  var styles = '';\n  cursor = undefined;\n  var strings = args[0];\n\n  if (strings == null || strings.raw === undefined) {\n    stringMode = false;\n    styles += handleInterpolation(mergedProps, registered, strings);\n  } else {\n    if (false) {}\n\n    styles += strings[0];\n  } // we start at 1 since we've already handled the first arg\n\n\n  for (var i = 1; i < args.length; i++) {\n    styles += handleInterpolation(mergedProps, registered, args[i]);\n\n    if (stringMode) {\n      if (false) {}\n\n      styles += strings[i];\n    }\n  }\n\n  var sourceMap;\n\n  if (false) {} // using a global regex with .exec is stateful so lastIndex has to be reset each time\n\n\n  labelPattern.lastIndex = 0;\n  var identifierName = '';\n  var match; // https://esbench.com/bench/5b809c2cf2949800a0f61fb5\n\n  while ((match = labelPattern.exec(styles)) !== null) {\n    identifierName += '-' + // $FlowFixMe we know it's not null\n    match[1];\n  }\n\n  var name = (0,_emotion_hash__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(styles) + identifierName;\n\n  if (false) {}\n\n  return {\n    name: name,\n    styles: styles,\n    next: cursor\n  };\n};\n\n\n\n\n//# sourceURL=webpack://frontend/./node_modules/@emotion/serialize/dist/emotion-serialize.browser.esm.js?");
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 
 /***/ }),
 
@@ -120,8 +108,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@emotion/styled/base/dist/emotion-styled-base.browser.esm.js":
 /*!***********************************************************************************!*\
   !*** ./node_modules/@emotion/styled/base/dist/emotion-styled-base.browser.esm.js ***!
@@ -133,16 +119,10 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 /***/ "./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js":
 /*!*************************************************************************!*\
   !*** ./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js ***!
   \*************************************************************************/
-<<<<<<< HEAD
-/***/ (() => {
-
-eval("throw new Error(\"Module build failed: Error: ENOENT: no such file or directory, open '/home/thiblem/code/ThbltLmr/django-react-bingewatcher/frontend/node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js'\");\n\n//# sourceURL=webpack://frontend/./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js?");
-=======
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -180,7 +160,6 @@ eval("var react__WEBPACK_IMPORTED_MODULE_0___namespace_cache;\n__webpack_require
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   getRegisteredStyles: () => (/* binding */ getRegisteredStyles),\n/* harmony export */   insertStyles: () => (/* binding */ insertStyles),\n/* harmony export */   registerStyles: () => (/* binding */ registerStyles)\n/* harmony export */ });\nvar isBrowser = \"object\" !== 'undefined';\nfunction getRegisteredStyles(registered, registeredStyles, classNames) {\n  var rawClassName = '';\n  classNames.split(' ').forEach(function (className) {\n    if (registered[className] !== undefined) {\n      registeredStyles.push(registered[className] + \";\");\n    } else {\n      rawClassName += className + \" \";\n    }\n  });\n  return rawClassName;\n}\nvar registerStyles = function registerStyles(cache, serialized, isStringTag) {\n  var className = cache.key + \"-\" + serialized.name;\n\n  if ( // we only need to add the styles to the registered cache if the\n  // class name could be used further down\n  // the tree but if it's a string tag, we know it won't\n  // so we don't have to add it to registered cache.\n  // this improves memory usage since we can avoid storing the whole style string\n  (isStringTag === false || // we need to always store it if we're in compat mode and\n  // in node since emotion-server relies on whether a style is in\n  // the registered cache to know whether a style is global or not\n  // also, note that this check will be dead code eliminated in the browser\n  isBrowser === false ) && cache.registered[className] === undefined) {\n    cache.registered[className] = serialized.styles;\n  }\n};\nvar insertStyles = function insertStyles(cache, serialized, isStringTag) {\n  registerStyles(cache, serialized, isStringTag);\n  var className = cache.key + \"-\" + serialized.name;\n\n  if (cache.inserted[serialized.name] === undefined) {\n    var current = serialized;\n\n    do {\n      cache.insert(serialized === current ? \".\" + className : '', current, cache.sheet, true);\n\n      current = current.next;\n    } while (current !== undefined);\n  }\n};\n\n\n\n\n//# sourceURL=webpack://frontend/./node_modules/@emotion/utils/dist/emotion-utils.browser.esm.js?");
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 
 /***/ }),
 
@@ -195,8 +174,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@mui/icons-material/Menu.js":
 /*!**************************************************!*\
   !*** ./node_modules/@mui/icons-material/Menu.js ***!
@@ -428,7 +405,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 /***/ "./node_modules/@mui/material/Typography/Typography.js":
 /*!*************************************************************!*\
   !*** ./node_modules/@mui/material/Typography/Typography.js ***!
@@ -605,8 +581,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@mui/material/styles/getOverlayAlpha.js":
 /*!**************************************************************!*\
   !*** ./node_modules/@mui/material/styles/getOverlayAlpha.js ***!
@@ -618,7 +592,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 /***/ "./node_modules/@mui/material/styles/identifier.js":
 /*!*********************************************************!*\
   !*** ./node_modules/@mui/material/styles/identifier.js ***!
@@ -685,8 +658,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@mui/material/utils/createChainedFunction.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/@mui/material/utils/createChainedFunction.js ***!
@@ -874,7 +845,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 /***/ "./node_modules/@mui/styled-engine/GlobalStyles/GlobalStyles.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/@mui/styled-engine/GlobalStyles/GlobalStyles.js ***!
@@ -893,11 +863,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-<<<<<<< HEAD
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ StyledEngineProvider)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _emotion_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @emotion/react */ \"./node_modules/@emotion/react/dist/emotion-react.browser.esm.js\");\n/* harmony import */ var _emotion_cache__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @emotion/cache */ \"./node_modules/@emotion/cache/dist/emotion-cache.browser.esm.js\");\n/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ \"./node_modules/react/jsx-runtime.js\");\n'use client';\n\n\n\n\n\n\n// prepend: true moves MUI styles to the top of the <head> so they're loaded first.\n// It allows developers to easily override MUI styles with other styling solutions, like CSS modules.\n\nlet cache;\nif (typeof document === 'object') {\n  cache = (0,_emotion_cache__WEBPACK_IMPORTED_MODULE_1__[\"default\"])({\n    key: 'css',\n    prepend: true\n  });\n}\nfunction StyledEngineProvider(props) {\n  const {\n    injectFirst,\n    children\n  } = props;\n  return injectFirst && cache ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_emotion_react__WEBPACK_IMPORTED_MODULE_3__.CacheProvider, {\n    value: cache,\n    children: children\n  }) : children;\n}\n false ? 0 : void 0;\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/styled-engine/StyledEngineProvider/StyledEngineProvider.js?");
-=======
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ StyledEngineProvider)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _emotion_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @emotion/react */ \"./node_modules/@emotion/react/dist/emotion-element-c39617d8.browser.esm.js\");\n/* harmony import */ var _emotion_cache__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @emotion/cache */ \"./node_modules/@emotion/cache/dist/emotion-cache.browser.esm.js\");\n/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ \"./node_modules/react/jsx-runtime.js\");\n'use client';\n\n\n\n\n\n\n// prepend: true moves MUI styles to the top of the <head> so they're loaded first.\n// It allows developers to easily override MUI styles with other styling solutions, like CSS modules.\n\nlet cache;\nif (typeof document === 'object') {\n  cache = (0,_emotion_cache__WEBPACK_IMPORTED_MODULE_1__[\"default\"])({\n    key: 'css',\n    prepend: true\n  });\n}\nfunction StyledEngineProvider(props) {\n  const {\n    injectFirst,\n    children\n  } = props;\n  return injectFirst && cache ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_emotion_react__WEBPACK_IMPORTED_MODULE_3__.C, {\n    value: cache,\n    children: children\n  }) : children;\n}\n false ? 0 : void 0;\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/styled-engine/StyledEngineProvider/StyledEngineProvider.js?");
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 
 /***/ }),
 
@@ -908,11 +874,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-<<<<<<< HEAD
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   GlobalStyles: () => (/* reexport safe */ _GlobalStyles__WEBPACK_IMPORTED_MODULE_3__[\"default\"]),\n/* harmony export */   StyledEngineProvider: () => (/* reexport safe */ _StyledEngineProvider__WEBPACK_IMPORTED_MODULE_2__[\"default\"]),\n/* harmony export */   ThemeContext: () => (/* reexport safe */ _emotion_react__WEBPACK_IMPORTED_MODULE_1__.ThemeContext),\n/* harmony export */   css: () => (/* reexport safe */ _emotion_react__WEBPACK_IMPORTED_MODULE_1__.css),\n/* harmony export */   \"default\": () => (/* binding */ styled),\n/* harmony export */   internal_processStyles: () => (/* binding */ internal_processStyles),\n/* harmony export */   keyframes: () => (/* reexport safe */ _emotion_react__WEBPACK_IMPORTED_MODULE_1__.keyframes)\n/* harmony export */ });\n/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/styled */ \"./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js\");\n/* harmony import */ var _emotion_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @emotion/react */ \"./node_modules/@emotion/react/dist/emotion-react.browser.esm.js\");\n/* harmony import */ var _StyledEngineProvider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./StyledEngineProvider */ \"./node_modules/@mui/styled-engine/StyledEngineProvider/StyledEngineProvider.js\");\n/* harmony import */ var _GlobalStyles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GlobalStyles */ \"./node_modules/@mui/styled-engine/GlobalStyles/GlobalStyles.js\");\n/**\n * @mui/styled-engine v5.14.8\n *\n * @license MIT\n * This source code is licensed under the MIT license found in the\n * LICENSE file in the root directory of this source tree.\n */\n'use client';\n\n/* eslint-disable no-underscore-dangle */\n\nfunction styled(tag, options) {\n  const stylesFactory = (0,_emotion_styled__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(tag, options);\n  if (false) {}\n  return stylesFactory;\n}\n\n// eslint-disable-next-line @typescript-eslint/naming-convention\nconst internal_processStyles = (tag, processor) => {\n  // Emotion attaches all the styles as `__emotion_styles`.\n  // Ref: https://github.com/emotion-js/emotion/blob/16d971d0da229596d6bcc39d282ba9753c9ee7cf/packages/styled/src/base.js#L186\n  if (Array.isArray(tag.__emotion_styles)) {\n    tag.__emotion_styles = processor(tag.__emotion_styles);\n  }\n};\n\n\n\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/styled-engine/index.js?");
-=======
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   GlobalStyles: () => (/* reexport safe */ _GlobalStyles__WEBPACK_IMPORTED_MODULE_4__[\"default\"]),\n/* harmony export */   StyledEngineProvider: () => (/* reexport safe */ _StyledEngineProvider__WEBPACK_IMPORTED_MODULE_3__[\"default\"]),\n/* harmony export */   ThemeContext: () => (/* reexport safe */ _emotion_react__WEBPACK_IMPORTED_MODULE_1__.T),\n/* harmony export */   css: () => (/* reexport safe */ _emotion_react__WEBPACK_IMPORTED_MODULE_2__.css),\n/* harmony export */   \"default\": () => (/* binding */ styled),\n/* harmony export */   internal_processStyles: () => (/* binding */ internal_processStyles),\n/* harmony export */   keyframes: () => (/* reexport safe */ _emotion_react__WEBPACK_IMPORTED_MODULE_2__.keyframes)\n/* harmony export */ });\n/* harmony import */ var _emotion_styled__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/styled */ \"./node_modules/@emotion/styled/dist/emotion-styled.browser.esm.js\");\n/* harmony import */ var _emotion_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @emotion/react */ \"./node_modules/@emotion/react/dist/emotion-element-c39617d8.browser.esm.js\");\n/* harmony import */ var _emotion_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @emotion/react */ \"./node_modules/@emotion/react/dist/emotion-react.browser.esm.js\");\n/* harmony import */ var _StyledEngineProvider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./StyledEngineProvider */ \"./node_modules/@mui/styled-engine/StyledEngineProvider/StyledEngineProvider.js\");\n/* harmony import */ var _GlobalStyles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./GlobalStyles */ \"./node_modules/@mui/styled-engine/GlobalStyles/GlobalStyles.js\");\n/**\n * @mui/styled-engine v5.14.8\n *\n * @license MIT\n * This source code is licensed under the MIT license found in the\n * LICENSE file in the root directory of this source tree.\n */\n'use client';\n\n/* eslint-disable no-underscore-dangle */\n\nfunction styled(tag, options) {\n  const stylesFactory = (0,_emotion_styled__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(tag, options);\n  if (false) {}\n  return stylesFactory;\n}\n\n// eslint-disable-next-line @typescript-eslint/naming-convention\nconst internal_processStyles = (tag, processor) => {\n  // Emotion attaches all the styles as `__emotion_styles`.\n  // Ref: https://github.com/emotion-js/emotion/blob/16d971d0da229596d6bcc39d282ba9753c9ee7cf/packages/styled/src/base.js#L186\n  if (Array.isArray(tag.__emotion_styles)) {\n    tag.__emotion_styles = processor(tag.__emotion_styles);\n  }\n};\n\n\n\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/styled-engine/index.js?");
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 
 /***/ }),
 
@@ -960,8 +922,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@mui/system/esm/createBox.js":
 /*!***************************************************!*\
   !*** ./node_modules/@mui/system/esm/createBox.js ***!
@@ -973,7 +933,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 /***/ "./node_modules/@mui/system/esm/createStyled.js":
 /*!******************************************************!*\
   !*** ./node_modules/@mui/system/esm/createStyled.js ***!
@@ -1190,11 +1149,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-<<<<<<< HEAD
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _mui_styled_engine__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mui/styled-engine */ \"./node_modules/@emotion/react/dist/emotion-react.browser.esm.js\");\n'use client';\n\n\n\nfunction isObjectEmpty(obj) {\n  return Object.keys(obj).length === 0;\n}\nfunction useTheme(defaultTheme = null) {\n  const contextTheme = react__WEBPACK_IMPORTED_MODULE_0__.useContext(_mui_styled_engine__WEBPACK_IMPORTED_MODULE_1__.ThemeContext);\n  return !contextTheme || isObjectEmpty(contextTheme) ? defaultTheme : contextTheme;\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useTheme);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/system/esm/useThemeWithoutDefault.js?");
-=======
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _mui_styled_engine__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mui/styled-engine */ \"./node_modules/@emotion/react/dist/emotion-element-c39617d8.browser.esm.js\");\n'use client';\n\n\n\nfunction isObjectEmpty(obj) {\n  return Object.keys(obj).length === 0;\n}\nfunction useTheme(defaultTheme = null) {\n  const contextTheme = react__WEBPACK_IMPORTED_MODULE_0__.useContext(_mui_styled_engine__WEBPACK_IMPORTED_MODULE_1__.T);\n  return !contextTheme || isObjectEmpty(contextTheme) ? defaultTheme : contextTheme;\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useTheme);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/system/esm/useThemeWithoutDefault.js?");
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 
 /***/ }),
 
@@ -1231,8 +1186,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@mui/utils/esm/createChainedFunction.js":
 /*!**************************************************************!*\
   !*** ./node_modules/@mui/utils/esm/createChainedFunction.js ***!
@@ -1255,7 +1208,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 /***/ "./node_modules/@mui/utils/esm/deepmerge.js":
 /*!**************************************************!*\
   !*** ./node_modules/@mui/utils/esm/deepmerge.js ***!
@@ -1267,8 +1219,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@mui/utils/esm/deprecatedPropType.js":
 /*!***********************************************************!*\
   !*** ./node_modules/@mui/utils/esm/deprecatedPropType.js ***!
@@ -1280,7 +1230,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 /***/ "./node_modules/@mui/utils/esm/formatMuiErrorMessage.js":
 /*!**************************************************************!*\
   !*** ./node_modules/@mui/utils/esm/formatMuiErrorMessage.js ***!
@@ -1314,8 +1263,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@mui/utils/esm/isMuiElement.js":
 /*!*****************************************************!*\
   !*** ./node_modules/@mui/utils/esm/isMuiElement.js ***!
@@ -1360,7 +1307,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 /***/ "./node_modules/@mui/utils/esm/resolveProps.js":
 /*!*****************************************************!*\
   !*** ./node_modules/@mui/utils/esm/resolveProps.js ***!
@@ -1372,8 +1318,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@mui/utils/esm/setRef.js":
 /*!***********************************************!*\
   !*** ./node_modules/@mui/utils/esm/setRef.js ***!
@@ -1462,7 +1406,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 /***/ "./node_modules/@remix-run/router/dist/router.js":
 /*!*******************************************************!*\
   !*** ./node_modules/@remix-run/router/dist/router.js ***!
@@ -1496,8 +1439,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./src/components/ExplanationCard.js":
 /*!*******************************************!*\
   !*** ./src/components/ExplanationCard.js ***!
@@ -1509,7 +1450,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 /***/ "./src/components/HomePage.js":
 /*!************************************!*\
   !*** ./src/components/HomePage.js ***!
@@ -1517,9 +1457,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-<<<<<<< HEAD
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ HomePage)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nObject(function webpackMissingModule() { var e = new Error(\"Cannot find module './Navbar'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n/* harmony import */ var _mui_material_Typography__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material/Typography */ \"./node_modules/@mui/material/Typography/Typography.js\");\nObject(function webpackMissingModule() { var e = new Error(\"Cannot find module './ExplanationCard'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n\n\n\n\n\nfunction HomePage() {\n  const cardContents = [{\n    title: \"Track your favourite shows\",\n    content: \"Add shows from all streaming services to your watchlist and keep track of your progress\"\n  }, {\n    title: \"Get notified of new episodes\",\n    content: \"Loved this show but the next season is not announced yet? Get an email it comes out\"\n  }, {\n    title: \"See show recommendations\",\n    content: \"Finished all your shows? Get recommendations for new shows based on your watchlist\"\n  }];\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Object(function webpackMissingModule() { var e = new Error(\"Cannot find module './Navbar'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"w-100 pt-16 text-center mb-8\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n    variant: \"h1\",\n    component: \"div\",\n    sx: {\n      flexGrow: 1\n    }\n  }, \"Welcome to BingeWatcher\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"text-center mb-16\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n    variant: \"h3\",\n    component: \"div\",\n    sx: {\n      flexGrow: 1\n    }\n  }, \"Track all your favourite shows\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"text-center w-100 mb-16\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"a\", {\n    href: \"/profile\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"button\", {\n    className: \"bg-blue-500 hover:bg-blue-700 text-white font-light text-5xl py-4 px-10 rounded\"\n  }, \"Get started\"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"w-11/12 mx-auto flex justify-center\"\n  }, cardContents.map(cardContent => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Object(function webpackMissingModule() { var e = new Error(\"Cannot find module './ExplanationCard'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {\n    title: cardContent.title,\n    content: cardContent.content\n  }))));\n}\n\n//# sourceURL=webpack://frontend/./src/components/HomePage.js?");
-=======
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ HomePage)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Navbar */ \"./src/components/Navbar.js\");\n/* harmony import */ var _mui_material_Typography__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material/Typography */ \"./node_modules/@mui/material/Typography/Typography.js\");\n/* harmony import */ var _ExplanationCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ExplanationCard */ \"./src/components/ExplanationCard.js\");\n\n\n\n\n\nfunction HomePage() {\n  const cardContents = [{\n    title: \"Track your favourite shows\",\n    content: \"Add shows from all streaming services to your watchlist and keep track of your progress\"\n  }, {\n    title: \"Get notified of new episodes\",\n    content: \"Loved this show but the next season is not announced yet? Get an email it comes out\"\n  }, {\n    title: \"See show recommendations\",\n    content: \"Finished all your shows? Get recommendations for new shows based on your watchlist\"\n  }];\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Navbar__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"w-100 pt-16 text-center mb-8\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {\n    variant: \"h1\",\n    component: \"div\",\n    sx: {\n      flexGrow: 1\n    }\n  }, \"Welcome to BingeWatcher\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"text-center mb-16\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {\n    variant: \"h3\",\n    component: \"div\",\n    sx: {\n      flexGrow: 1\n    }\n  }, \"Track all your favourite shows\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"text-center w-100 mb-16\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"a\", {\n    href: \"/profile\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"button\", {\n    className: \"bg-blue-500 hover:bg-blue-700 text-white font-light text-5xl py-4 px-10 rounded\"\n  }, \"Get started\"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"w-11/12 mx-auto flex justify-center\"\n  }, cardContents.map(cardContent => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ExplanationCard__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n    title: cardContent.title,\n    content: cardContent.content\n  }))));\n}\n\n//# sourceURL=webpack://frontend/./src/components/HomePage.js?");
 
 /***/ }),
@@ -1532,7 +1469,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Navbar)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _mui_material_AppBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material/AppBar */ \"./node_modules/@mui/material/AppBar/AppBar.js\");\n/* harmony import */ var _mui_material_Box__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mui/material/Box */ \"./node_modules/@mui/material/Box/Box.js\");\n/* harmony import */ var _mui_material_Toolbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material/Toolbar */ \"./node_modules/@mui/material/Toolbar/Toolbar.js\");\n/* harmony import */ var _mui_material_Typography__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material/Typography */ \"./node_modules/@mui/material/Typography/Typography.js\");\n/* harmony import */ var _mui_material_Button__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material/Button */ \"./node_modules/@mui/material/Button/Button.js\");\n/* harmony import */ var _mui_material_IconButton__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material/IconButton */ \"./node_modules/@mui/material/IconButton/IconButton.js\");\n/* harmony import */ var _mui_icons_material_Menu__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/icons-material/Menu */ \"./node_modules/@mui/icons-material/Menu.js\");\n\n\n\n\n\n\n\n\nfunction Navbar() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Box__WEBPACK_IMPORTED_MODULE_1__[\"default\"], {\n    sx: {\n      flexGrow: 1\n    }\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_AppBar__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n    position: \"static\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Toolbar__WEBPACK_IMPORTED_MODULE_3__[\"default\"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_IconButton__WEBPACK_IMPORTED_MODULE_4__[\"default\"], {\n    size: \"large\",\n    edge: \"start\",\n    color: \"inherit\",\n    \"aria-label\": \"menu\",\n    sx: {\n      mr: 2\n    }\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_icons_material_Menu__WEBPACK_IMPORTED_MODULE_5__[\"default\"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_6__[\"default\"], {\n    variant: \"h5\",\n    component: \"div\",\n    sx: {\n      flexGrow: 1\n    }\n  }, \"BingeWatcher\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Button__WEBPACK_IMPORTED_MODULE_7__[\"default\"], {\n    size: \"large\",\n    color: \"inherit\"\n  }, \"Login\"))));\n}\n\n//# sourceURL=webpack://frontend/./src/components/Navbar.js?");
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 
 /***/ }),
 
@@ -1569,8 +1505,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _com
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js":
 /*!**********************************************************************************!*\
   !*** ./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js ***!
@@ -1604,7 +1538,6 @@ eval("\n\nif (true) {\n  module.exports = __webpack_require__(/*! ./cjs/react-is
 
 /***/ }),
 
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 /***/ "./node_modules/react-dom/cjs/react-dom.production.min.js":
 /*!****************************************************************!*\
   !*** ./node_modules/react-dom/cjs/react-dom.production.min.js ***!
@@ -1649,8 +1582,6 @@ eval("var react__WEBPACK_IMPORTED_MODULE_0___namespace_cache;\n__webpack_require
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/react-transition-group/esm/TransitionGroup.js":
 /*!********************************************************************!*\
   !*** ./node_modules/react-transition-group/esm/TransitionGroup.js ***!
@@ -1684,7 +1615,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 /***/ "./node_modules/react/cjs/react-jsx-runtime.production.min.js":
 /*!********************************************************************!*\
   !*** ./node_modules/react/cjs/react-jsx-runtime.production.min.js ***!
@@ -1751,8 +1681,6 @@ eval("\n\nif (true) {\n  module.exports = __webpack_require__(/*! ./cjs/schedule
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/interopRequireDefault.js ***!
@@ -1774,7 +1702,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 /***/ "./node_modules/@babel/runtime/helpers/esm/extends.js":
 /*!************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/extends.js ***!
@@ -1786,8 +1713,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js":
 /*!******************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js ***!
@@ -1799,7 +1724,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 /***/ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js":
 /*!*********************************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js ***!
@@ -1811,8 +1735,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js ***!
@@ -1824,7 +1746,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 /***/ "./node_modules/clsx/dist/clsx.mjs":
 /*!*****************************************!*\
   !*** ./node_modules/clsx/dist/clsx.mjs ***!
@@ -1940,8 +1861,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	}
 /******/ 	
 /************************************************************************/
-<<<<<<< HEAD
-=======
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -1954,7 +1873,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		};
 /******/ 	})();
 /******/ 	
->>>>>>> 4c61fbb1a86460f96ad82902397bd0d1d0b48aa4
 /******/ 	/* webpack/runtime/create fake namespace object */
 /******/ 	(() => {
 /******/ 		var getProto = Object.getPrototypeOf ? (obj) => (Object.getPrototypeOf(obj)) : (obj) => (obj.__proto__);
