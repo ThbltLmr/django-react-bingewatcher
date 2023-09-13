@@ -21,7 +21,6 @@ export default function HomePage() {
   ]
   return (
     <div>
-      <Navbar />
       <div className="w-100 pt-16 text-center mb-8">
         <Typography variant="h1" component="div" sx={{ flexGrow: 1 }}>Welcome to BingeWatcher</Typography>
       </div>
