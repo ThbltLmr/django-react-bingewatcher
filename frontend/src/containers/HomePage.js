@@ -3,8 +3,9 @@ import Navbar from "../components/Navbar";
 import Typography from '@mui/material/Typography';
 import ExplanationCard from "../components/ExplanationCard";
 import Button from '@mui/material/Button';
+import { connect } from "react-redux";
 
-export default function HomePage() {
+function HomePage({ isAuthenticated }) {
   const cardContents = [
     {
       title: "Track your favourite shows",
@@ -28,7 +29,12 @@ export default function HomePage() {
         <Typography variant="h3" component="div" sx={{ flexGrow: 1 }}>Track all your favourite shows</Typography>
       </div>
       <div className="text-center w-100 mb-16">
-        <a href="/profile"><button className="bg-blue-500 hover:bg-blue-700 text-white font-light text-5xl py-4 px-10 rounded">Get started</button></a>
+        {!isAuthenticated &&
+          <a href="/profile"><button className="bg-blue-500 hover:bg-blue-700 text-white font-light text-5xl py-4 px-10 rounded">Get started</button></a>
+        }
+        {isAuthenticated &&
+          <a href="/profile"><button className="bg-blue-500 hover:bg-blue-700 text-white font-light text-5xl py-4 px-10 rounded">Your shows</button></a>
+        }
       </div>
       <div className="w-11/12 mx-auto flex justify-center">
         {cardContents.map((cardContent) => (
@@ -38,3 +44,9 @@ export default function HomePage() {
     </div>
   );
 }
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+export default connect(mapStateToProps, null)(HomePage);

@@ -8,3 +8,14 @@ html {
   color: #1769aa;
 }
 
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 45%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 25%;
+  }
+}
